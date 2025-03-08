@@ -1,4 +1,4 @@
-package com.agent.functions;
+package com.agent.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

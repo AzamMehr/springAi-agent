@@ -1,5 +1,6 @@
-package com.agent.functions;
+package com.agent.service;
 
+import com.agent.configuration.WeatherApiConfigProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestClient;
@@ -32,8 +33,8 @@ public class CurrentWeatherService implements Function<CurrentWeatherService.Req
 
     public record Request(String city){}
     public record Response(Location location, Current current){}
-    public record Location(String name, String region, String country, Long lat, Long lan){}
-    public record Current(String temp_f, Condition condition, String wind_mph, String humidit){}
+    public record Location(String name, String region, String country, Long lat, Long lon){}
+    public record Current(String temp_f, Condition condition, String wind_mph, String humidity){}
     public record Condition(String text){}
-
 }
+

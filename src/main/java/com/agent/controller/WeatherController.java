@@ -19,12 +19,12 @@ public class WeatherController {
     private final SystemMessage systemMessage;
     private final OllamaOptions ollamaOptions;
 
-    public WeatherController(ChatClient.Builder builder) {
-        chatClient = builder.build();
-        systemMessage = new SystemMessage("You are a helpful AI agent answering questions about current weather."
-                + "Provide brief and precise answers. If you can't provide current weather just answer by saying this functionality is not yet available");
-        ollamaOptions  = OllamaOptions.builder()
-                .model(OllamaModel.LLAMA3_1).build();
+    public WeatherController(ChatClient.Builder chatBuilder, OllamaOptions.Builder ollamaOptionsBuilder) {
+        this.chatClient = chatBuilder.build();
+        this.ollamaOptions = ollamaOptionsBuilder.build();
+        systemMessage = new SystemMessage("You are a helpful AI agent answering questions" +
+                " about current weather.Provide brief and precise answers. If you can't provide current" +
+                " weather just answer by saying this functionality is not yet available");
     }
 
     @GetMapping("/weather")
